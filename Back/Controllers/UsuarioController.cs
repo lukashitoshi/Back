@@ -30,7 +30,7 @@ namespace Back.Controllers
 
             if (_user != null && _user.Login != null && _user.Senha != null)
             {
-                var user = await GetUsuario(_user.Login, _user.Senha);
+                var user = GetUsuario(_user.Login, _user.Senha);
 
                 if (user != null)
                 {
@@ -60,7 +60,7 @@ namespace Back.Controllers
             }
         }
 
-        public async Task<Usuario> GetUsuario(string login, string senha)
+        public Usuario GetUsuario(string login, string senha)
         {
             return _context.Usuario.FirstOrDefault(u => u.Login == login && u.Senha == senha);
         }
